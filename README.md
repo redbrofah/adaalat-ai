@@ -3,7 +3,9 @@
 > **An AI Bench Clerk for the forgotten courts of Bangladesh.**
 > Built with Claude Opus 4.7 for the Anthropic *Built with 4.7* Hackathon.
 
-[![Built with Opus 4.7](https://img.shields.io/badge/Built%20with-Opus%204.7-c9a961)](https://www.anthropic.com)
+🌐 **Live:** [adaalat-ai.vercel.app](https://adaalat-ai.vercel.app) · 📺 **Demo (no login):** [adaalat-ai.vercel.app/demo](https://adaalat-ai.vercel.app/demo)
+
+[![Built with Opus 4.7](https://img.shields.io/badge/Built%20with-Opus%204.7-10b981)](https://www.anthropic.com)
 [![Next.js 14](https://img.shields.io/badge/Next.js-14-black)](https://nextjs.org)
 [![TypeScript](https://img.shields.io/badge/TypeScript-strict-blue)](https://www.typescriptlang.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](#license)

@@ -1,6 +1,9 @@
 # AdaalatAI — 3-minute Demo Video Script
 
-> **Total runtime: 2:50.** Hook in 0:10. Real screen recording only — no Remotion replicas (Eli Benveniste explicitly warned hackathon entries against this).
+> **Total runtime: 2:50.** Hook in 0:10. Real screen recording only.
+
+🌐 **Live demo URL** (no login required): https://adaalat-ai.vercel.app/demo
+🎬 **Where to record**: localhost:3000 — Vercel free tier has 60s function timeout that interrupts live agent processing; localhost has no such limit and shows the full multi-agent cascade.
 
 ## Tools you need
 

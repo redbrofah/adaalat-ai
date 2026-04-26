@@ -2,20 +2,30 @@ import { NextRequest, NextResponse } from "next/server";
 import { v4 as uuidv4 } from "uuid";
 import { runOrchestrator } from "@/agents/orchestrator";
 import { listCases, loadCase, getCaseStatus, deleteCase } from "@/lib/storage/case-store";
+import { DEMO_BUNDLES, isDemoCase } from "@/lib/storage/demo-bundle";
 
 export const runtime = "nodejs";
 export const maxDuration = 60;
 
 export async function GET() {
-  const ids = listCases();
-  const cases = ids
-    .map((id) => {
-      const c = loadCase(id);
-      if (!c) return null;
-      return { ...c, status: getCaseStatus(id) };
-    })
-    .filter((c): c is NonNullable<typeof c> => c !== null)
-    .sort((a, b) => b.uploadedAt - a.uploadedAt);
+  const seen = new Set<string>();
+  const cases: Array<Record<string, unknown>> = [];
+
+  // First, the bundled demo cases (always available, even on Vercel)
+  for (const [id, bundle] of Object.entries(DEMO_BUNDLES)) {
+    cases.push({ ...bundle.case, status: bundle.status });
+    seen.add(id);
+  }
+
+  // Then, any locally written cases (filesystem; works on localhost)
+  for (const id of listCases()) {
+    if (seen.has(id)) continue;
+    const c = loadCase(id);
+    if (!c) continue;
+    cases.push({ ...c, status: getCaseStatus(id) });
+  }
+
+  cases.sort((a, b) => (b.uploadedAt as number) - (a.uploadedAt as number));
   return NextResponse.json({ cases });
 }
 
@@ -25,7 +35,7 @@ export async function DELETE(req: NextRequest) {
   if (scope !== "smoke-tests") {
     return NextResponse.json({ error: "Specify scope=smoke-tests" }, { status: 400 });
   }
-  const ids = listCases().filter((id) => id.startsWith("test-"));
+  const ids = listCases().filter((id) => id.startsWith("test-") && !isDemoCase(id));
   let deleted = 0;
   for (const id of ids) {
     if (deleteCase(id)) deleted += 1;

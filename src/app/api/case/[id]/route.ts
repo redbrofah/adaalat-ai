@@ -6,6 +6,7 @@ import {
   getCaseStatus,
   deleteCase,
 } from "@/lib/storage/case-store";
+import { getDemoBundle, isDemoCase } from "@/lib/storage/demo-bundle";
 import type { AgentId } from "@/lib/types";
 
 export const runtime = "nodejs";
@@ -24,6 +25,16 @@ const ALL_AGENTS: AgentId[] = [
 ];
 
 export async function GET(_req: NextRequest, { params }: { params: { id: string } }) {
+  const demo = getDemoBundle(params.id);
+  if (demo) {
+    return NextResponse.json({
+      case: demo.case,
+      outputs: demo.outputs,
+      status: demo.status,
+      availableAgents: demo.availableAgents,
+    });
+  }
+
   const caseFile = loadCase(params.id);
   if (!caseFile) {
     return NextResponse.json({ error: "not found" }, { status: 404 });
@@ -42,6 +53,9 @@ export async function GET(_req: NextRequest, { params }: { params: { id: string 
 }
 
 export async function DELETE(_req: NextRequest, { params }: { params: { id: string } }) {
+  if (isDemoCase(params.id)) {
+    return NextResponse.json({ error: "demo cases cannot be deleted" }, { status: 403 });
+  }
   const ok = deleteCase(params.id);
   if (!ok) return NextResponse.json({ error: "not found" }, { status: 404 });
   return NextResponse.json({ deleted: params.id });
