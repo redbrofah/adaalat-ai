@@ -4,7 +4,7 @@ import { runOrchestrator } from "@/agents/orchestrator";
 import { listCases, loadCase, getCaseStatus, deleteCase } from "@/lib/storage/case-store";
 
 export const runtime = "nodejs";
-export const maxDuration = 600;
+export const maxDuration = 60;
 
 export async function GET() {
   const ids = listCases();

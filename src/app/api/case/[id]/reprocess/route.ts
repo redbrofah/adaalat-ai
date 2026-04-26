@@ -3,7 +3,7 @@ import { loadCase } from "@/lib/storage/case-store";
 import { runOrchestrator } from "@/agents/orchestrator";
 
 export const runtime = "nodejs";
-export const maxDuration = 600;
+export const maxDuration = 60;
 
 export async function POST(_req: NextRequest, { params }: { params: { id: string } }) {
   const caseFile = loadCase(params.id);

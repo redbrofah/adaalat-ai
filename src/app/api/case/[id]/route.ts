@@ -9,6 +9,7 @@ import {
 import type { AgentId } from "@/lib/types";
 
 export const runtime = "nodejs";
+export const maxDuration = 30;
 
 const ALL_AGENTS: AgentId[] = [
   "vision",

@@ -3,6 +3,7 @@ import { subscribe, getHistory } from "@/lib/streaming/event-bus";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
+export const maxDuration = 60;
 
 export async function GET(req: NextRequest, { params }: { params: { id: string } }) {
   const { id } = params;
