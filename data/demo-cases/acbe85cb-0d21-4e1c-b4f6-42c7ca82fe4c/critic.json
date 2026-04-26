@@ -1,0 +1,39 @@
+{
+  "passed": false,
+  "issues": [
+    {
+      "agent": "synthesis",
+      "severity": "error",
+      "message": "citationsVerified is set to true despite the synthesis itself explicitly acknowledging that 'State vs. Babul Sheikh' has no DLR citation supplied by the precedent input. A case with no law-report reference cannot be considered a verified citation. This field must be set to false until the citation is confirmed or the case removed."
+    },
+    {
+      "agent": "reasoning",
+      "severity": "warning",
+      "message": "'State vs. Babul Sheikh' is cited as an Appellate Division authority affirming the independent-witness principle but is given no DLR, BCR, or BLD citation anywhere in the output. No tool-result-backed citation is visible. This is a potential hallucination; the precedent agent should confirm or remove this citation."
+    },
+    {
+      "agent": "deadline",
+      "severity": "warning",
+      "message": "The deadline agent cites Narcotics Control Act, 2018 §44 as the operative provision imposing a 60-day investigation period, while the reasoning agent cites §31 (30 working days, extendable by 15). These are different sections with materially different timescales. One citation is likely incorrect. The deadline agent should be re-run with the verified statutory text of §§31 and 44, and the synthesis correctly flags this but cannot resolve it without a re-run."
+    },
+    {
+      "agent": "deadline",
+      "severity": "warning",
+      "message": "Three deadlines are marked isViolated: true (remand cap, chargesheet, investigation period) on the sole basis that the current date is approximately 429 days after arrest. The case file does not confirm whether a chargesheet was in fact filed, or how many remand days were actually granted. Treating unconfirmed violations as confirmed violations is a logical leap that could prejudice the prosecution. These should be marked as 'apparent violation — verification required' rather than confirmed breaches."
+    },
+    {
+      "agent": "classification",
+      "severity": "info",
+      "message": "The applicableLaws list for the Constitution only enumerates Articles 33 and 35. Articles 27 (equality before law), 31 (right to protection of law), and 32 (protection of right to life and personal liberty) — all of which the reasoning agent and synthesis treat as directly applicable — are absent. This omission creates a minor gap between the classification output and downstream constitutional analysis."
+    },
+    {
+      "agent": "synthesis",
+      "severity": "info",
+      "message": "The Speedy Trial Tribunal Act, 2002 §§3 & 5 is included in the statutory framework and the draft order without any established basis in the case file that the case has been or will be committed to a Speedy Trial Tribunal. Drug cases under the Narcotics Control Act, 2018 are not automatically STT matters; commitment depends on executive notification and judicial order. Including STT deadlines without a factual predicate may mislead the presiding judge. This reference should be qualified as conditional."
+    }
+  ],
+  "rerunSuggestions": [
+    "precedent",
+    "deadline"
+  ]
+}

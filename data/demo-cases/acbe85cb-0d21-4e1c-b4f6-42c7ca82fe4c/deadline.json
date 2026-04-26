@@ -1,0 +1,62 @@
+{
+  "deadlines": [
+    {
+      "description": "Police remand maximum period: accused Rafiq Ahmed arrested on 20/02/2025; total police remand cannot exceed 15 days during investigation",
+      "statutoryBasis": "CrPC §167(2)",
+      "deadlineDate": "2025-03-07",
+      "daysRemaining": -414,
+      "isViolated": true,
+      "consequence": "Any remand beyond 15 cumulative days is illegal; accused entitled to bail by default; any confession or statement obtained beyond this period is inadmissible; court must release accused on bail if chargesheet not filed within statutory period"
+    },
+    {
+      "description": "Chargesheet submission deadline: FIR filed 20/02/2025; drug case under Narcotics Control Act 2018 involving 500g Yaba (serious offence likely attracting above 10 years imprisonment) — chargesheet must be filed within 90 days of arrest under CrPC §167(2)",
+      "statutoryBasis": "CrPC §167(2)",
+      "deadlineDate": "2025-05-21",
+      "daysRemaining": -339,
+      "isViolated": true,
+      "consequence": "If chargesheet not filed within 90 days, accused is entitled to default bail (bail by right); court must release accused on bail upon application; failure to do so violates fundamental right under Constitution Article 35(3)"
+    },
+    {
+      "description": "Investigation maximum period under Narcotics Control Act 2018: investigation from date of arrest (20/02/2025) must be completed within 60 days",
+      "statutoryBasis": "Narcotics Control Act, 2018 §44",
+      "deadlineDate": "2025-04-21",
+      "daysRemaining": -369,
+      "isViolated": true,
+      "consequence": "Investigation conducted beyond 60 days is procedurally defective; chargesheet filed after this deadline may be challenged; court may take adverse note of the delay; accused may seek discharge on grounds of procedural violation"
+    },
+    {
+      "description": "Trial completion deadline: if case has been committed to Speedy Trial Tribunal (applicable given serious narcotics offence), trial must complete within 90 days of committal",
+      "statutoryBasis": "Speedy Trial Tribunal Act, 2002 §3 & §5",
+      "deadlineDate": "unknown",
+      "daysRemaining": 0,
+      "isViolated": false,
+      "consequence": "If committal date is known and 90 days have elapsed, trial is in violation; court must record reasons for delay; prolonged delay can be ground for bail application citing Constitution Article 35(3); tribunal must explain non-compliance to High Court Division"
+    },
+    {
+      "description": "Trial completion deadline under general warrant case procedure: if charge has been framed, trial must complete within 180 days from date of charge framing or court must record reasons",
+      "statutoryBasis": "CrPC §339C",
+      "deadlineDate": "unknown",
+      "daysRemaining": 0,
+      "isViolated": false,
+      "consequence": "If charge framing date is known and 180 days have elapsed without trial completion, court is obligated to record written reasons; accused may apply for bail on grounds of inordinate delay; court may face supervisory action from High Court Division"
+    },
+    {
+      "description": "Constitutional right to speedy trial: arrest on 20/02/2025; as of today 25/04/2026, accused has been under process for approximately 429 days without confirmed trial completion",
+      "statutoryBasis": "Constitution of Bangladesh, Article 35(3)",
+      "deadlineDate": "2025-05-21",
+      "daysRemaining": -339,
+      "isViolated": true,
+      "consequence": "Prolonged detention without trial conclusion constitutes violation of fundamental right to speedy trial; accused may file writ petition before High Court Division under Article 102 seeking bail or expedited trial; court may suo motu intervene"
+    }
+  ],
+  "immediateActions": [
+    "URGENT: Verify whether chargesheet was filed within 90 days of arrest (deadline: 21/05/2025); if not filed in time, accused Rafiq Ahmed is entitled to statutory default bail under CrPC §167(2) and defence counsel must immediately file bail application",
+    "URGENT: Verify total number of remand days granted to police; if cumulative remand exceeds 15 days, any statement or confession obtained during excess remand period must be flagged as inadmissible and challenged before trial court",
+    "Confirm whether investigation was completed within 60 days as mandated by Narcotics Control Act 2018 §44 (deadline: 21/04/2025); if not, file application challenging procedural validity of chargesheet",
+    "Ascertain charge framing date; if charge was framed and 180 days have elapsed under CrPC §339C without trial conclusion, file application compelling court to record reasons and seek bail on grounds of inordinate delay",
+    "If case was committed to Speedy Trial Tribunal, calculate 90-day trial deadline from committal date under Speedy Trial Tribunal Act 2002; if exceeded, file representation to tribunal and if unaddressed, consider writ petition to High Court Division",
+    "File writ petition under Constitution Article 102 before High Court Division citing violation of Article 35(3) right to speedy trial given that 429 days have elapsed since arrest (20/02/2025 to 25/04/2026) without confirmed trial completion",
+    "Investigate and document the procedural irregularity in the seizure process as noted by witness Mofiz Uddin (neighbour); cross-examine SI Kamal on chain of custody to challenge admissibility of seized Yaba under Narcotics Control Act evidentiary requirements",
+    "Obtain certified copies of all remand orders, chargesheet filing receipt, and charge framing order immediately to compute all deadlines precisely"
+  ]
+}

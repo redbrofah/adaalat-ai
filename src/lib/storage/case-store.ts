@@ -3,6 +3,7 @@ import path from "path";
 import type { CaseFile, AgentId, CaseStatus } from "@/lib/types";
 
 const ROOT = process.env.UPLOADS_DIR ?? "./data/uploads";
+const DEMO_ROOT = "./data/demo-cases";
 
 const TRACKED_AGENTS: AgentId[] = [
   "vision",
@@ -16,12 +17,21 @@ const TRACKED_AGENTS: AgentId[] = [
   "critic",
 ];
 
-function caseDir(caseId: string) {
-  return path.join(ROOT, caseId);
+/**
+ * Resolve which root directory holds a given case. Cases written by a live
+ * orchestrator run go to ROOT; pre-bundled demo cases (committed in the repo)
+ * live in DEMO_ROOT. ROOT is checked first so a re-processed demo case wins.
+ */
+function caseDir(caseId: string): string {
+  const live = path.join(ROOT, caseId);
+  if (fs.existsSync(live)) return live;
+  const demo = path.join(DEMO_ROOT, caseId);
+  if (fs.existsSync(demo)) return demo;
+  return live; // default to live so writes target the right place
 }
 
 export function ensureCaseDir(caseId: string): string {
-  const dir = caseDir(caseId);
+  const dir = path.join(ROOT, caseId);
   fs.mkdirSync(dir, { recursive: true });
   return dir;
 }
@@ -52,11 +62,14 @@ export function loadAgentOutput<T>(caseId: string, agent: AgentId): T | null {
 }
 
 export function listCases(): string[] {
-  if (!fs.existsSync(ROOT)) return [];
-  return fs
-    .readdirSync(ROOT, { withFileTypes: true })
-    .filter((d) => d.isDirectory())
-    .map((d) => d.name);
+  const ids = new Set<string>();
+  for (const root of [ROOT, DEMO_ROOT]) {
+    if (!fs.existsSync(root)) continue;
+    for (const d of fs.readdirSync(root, { withFileTypes: true })) {
+      if (d.isDirectory()) ids.add(d.name);
+    }
+  }
+  return [...ids];
 }
 
 export function getCaseStatus(caseId: string): CaseStatus {
@@ -74,7 +87,7 @@ export function listAvailableAgentOutputs(caseId: string): AgentId[] {
 }
 
 export function deleteCase(caseId: string): boolean {
-  const dir = caseDir(caseId);
+  const dir = path.join(ROOT, caseId);
   if (!fs.existsSync(dir)) return false;
   fs.rmSync(dir, { recursive: true, force: true });
   return true;

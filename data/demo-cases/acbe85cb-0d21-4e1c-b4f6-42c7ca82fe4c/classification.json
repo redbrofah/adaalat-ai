@@ -1,0 +1,62 @@
+{
+  "caseType": "narcotics",
+  "subtype": "possession of controlled substance (yaba) with procedural irregularity challenge",
+  "urgency": 7,
+  "priorityFactors": [
+    "Liberty at stake — accused in custody following arrest under Narcotics Control Act 2018",
+    "Alleged statutory procedural violations during search and seizure raising admissibility questions",
+    "Contradictory witness testimony regarding seizure process warrants early judicial scrutiny",
+    "Statutory deadline compliance under CrPC s. 167 for remand/charge-sheet must be verified"
+  ],
+  "applicableLaws": [
+    {
+      "actName": "Narcotics Control Act, 2018",
+      "sections": [
+        "9(1)",
+        "9(2)",
+        "36",
+        "37",
+        "40"
+      ]
+    },
+    {
+      "actName": "Code of Criminal Procedure, 1898",
+      "sections": [
+        "54",
+        "100",
+        "103",
+        "154",
+        "161",
+        "167",
+        "173"
+      ]
+    },
+    {
+      "actName": "Penal Code, 1860",
+      "sections": [
+        "24"
+      ]
+    },
+    {
+      "actName": "Evidence Act, 1872",
+      "sections": [
+        "24",
+        "25",
+        "26",
+        "27",
+        "101",
+        "102",
+        "110"
+      ]
+    },
+    {
+      "actName": "Constitution of the People's Republic of Bangladesh, 1972",
+      "sections": [
+        "33",
+        "35"
+      ]
+    }
+  ],
+  "estimatedComplexity": "medium",
+  "reasoning": "মামলাটি Narcotics Control Act 2018-এর অধীনে ৫০০ গ্রাম ইয়াবা জব্দ সংক্রান্ত, যা s. 9(2) অনুযায়ী গুরুতর অপরাধ এবং দীর্ঘ কারাদণ্ডযোগ্য। অভিযুক্ত হেফাজতে থাকায় CrPC s. 167-এর অধীনে বিধিবদ্ধ সময়সীমা পর্যবেক্ষণ জরুরি এবং সংবিধানের Article 33 অনুযায়ী তার মৌলিক অধিকার সুরক্ষা নিশ্চিত করতে হবে। Seizure প্রক্রিয়ায় CrPC s. 100 ও s. 103-এর বাধ্যতামূলক সাক্ষী উপস্থিতির শর্ত পালন হয়েছে কিনা তা নিয়ে বিরোধী সাক্ষ্য থাকায় evidence admissibility একটি মূল বিষয় হবে, যা মামলাটিকে medium complexity-তে রাখে।"
+}
