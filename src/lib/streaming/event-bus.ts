@@ -2,8 +2,22 @@ import type { AgentEvent } from "@/lib/types";
 
 type Listener = (event: AgentEvent) => void;
 
-const channels = new Map<string, Set<Listener>>();
-const history = new Map<string, AgentEvent[]>();
+// Use globalThis so the in-memory state survives Next.js hot-module-reload.
+// Without this, every file save during a case run clears all SSE history.
+declare global {
+  // eslint-disable-next-line no-var
+  var __adaalat_channels: Map<string, Set<Listener>> | undefined;
+  // eslint-disable-next-line no-var
+  var __adaalat_history: Map<string, AgentEvent[]> | undefined;
+}
+
+const channels: Map<string, Set<Listener>> =
+  globalThis.__adaalat_channels ?? new Map();
+const history: Map<string, AgentEvent[]> =
+  globalThis.__adaalat_history ?? new Map();
+
+if (!globalThis.__adaalat_channels) globalThis.__adaalat_channels = channels;
+if (!globalThis.__adaalat_history) globalThis.__adaalat_history = history;
 
 export function publish(event: AgentEvent) {
   const listeners = channels.get(event.caseId);

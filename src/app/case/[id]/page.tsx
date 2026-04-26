@@ -33,7 +33,7 @@ interface OrchestratorEntry {
   status?: string;
 }
 
-const STALE_AGE_MS = 60_000;
+const STALE_AGE_MS = 600_000; // 10 minutes — longer than any case run
 
 export default function CaseDashboardPage() {
   const params = useParams<{ id: string }>();
