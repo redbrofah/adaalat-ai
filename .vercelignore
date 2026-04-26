@@ -1,0 +1,10 @@
+node_modules
+.next
+.git
+data/uploads
+data/index
+data/scob-pdfs
+data/statistics
+data/bdlaws/acts
+.env.local
+*.log
